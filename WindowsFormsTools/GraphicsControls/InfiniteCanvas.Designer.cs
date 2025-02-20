@@ -1,6 +1,6 @@
-﻿namespace WindowsFormsTools
+﻿namespace WindowsFormsTools.GraphicsControls
 {
-    partial class UserControl1
+    partial class InfiniteCanvas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            SuspendLayout();
+            // 
+            // Canvas
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Name = "Canvas";
+            Size = new Size(200, 200);
+            Load += InfiniteCanvas_Load;
+            Paint += InfiniteCanvas_Paint;
+            MouseDown += InfiniteCanvas_MouseDown;
+            MouseMove += InfiniteCanvas_MouseMove;
+            MouseUp += InfiniteCanvas_MouseUp;
+            Resize += InfiniteCanvas_Resize;
+            ResumeLayout(false);
         }
 
         #endregion
