@@ -1,11 +1,10 @@
-﻿
-using WindowsFormsTools.Miscellaneous;
+﻿using WindowsFormsTools.Core;
 
 namespace WindowsFormsTools.InputControls
 {
     public partial class ColorControl : UserControl
     {
-        public event EventHandler<ValueChangedEventArgs<Color>>? ValueChanged;
+        public event EventHandler<ColorValueChangedEventArgs>? ValueChanged;
 
         public string Header
         {
@@ -19,7 +18,7 @@ namespace WindowsFormsTools.InputControls
             set
             {
                 colorPanel.BackColor = value;
-                ValueChanged?.Invoke(this, new ValueChangedEventArgs<Color>(value));
+                ValueChanged?.Invoke(this, new ColorValueChangedEventArgs(value));
             }
         }
 

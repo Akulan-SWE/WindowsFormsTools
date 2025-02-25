@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsTools.Miscellaneous
+﻿using WindowsFormsTools.Core;
+
+namespace WindowsFormsTools.Miscellaneous
 {
     public class StateButton : Button
     {
@@ -15,7 +17,7 @@
             }
         }
 
-        public event EventHandler<ValueChangedEventArgs<int>>? StateIndexChanged;
+        public event EventHandler<IntValueChangedEventArgs>? StateIndexChanged;
 
         private ImageEntry[]? stateImages;
         private int stateIndex = -1;
@@ -51,7 +53,7 @@
                 Image = entry.Image;
                 Text = Image == null ? entry.Name : string.Empty;
 
-                StateIndexChanged?.Invoke(this, new ValueChangedEventArgs<int>(stateIndex));
+                StateIndexChanged?.Invoke(this, new IntValueChangedEventArgs(stateIndex));
             }
         }
 

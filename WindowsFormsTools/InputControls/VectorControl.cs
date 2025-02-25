@@ -1,11 +1,11 @@
 ﻿using System.Numerics;
-using WindowsFormsTools.Miscellaneous;
+using WindowsFormsTools.Core;
 
 namespace WindowsFormsTools.InputControls
 {
     public partial class VectorControl : UserControl
     {
-        public event EventHandler<ValueChangedEventArgs<Vector2>>? ValueChanged;
+        public event EventHandler<Vector2ValueChangedEventArgs>? ValueChanged;
 
         private Vector2 value;
 
@@ -61,7 +61,7 @@ namespace WindowsFormsTools.InputControls
             {
                 X = value.X;
                 Y = value.Y;
-                ValueChanged?.Invoke(this,new ValueChangedEventArgs<Vector2>(value));
+                ValueChanged?.Invoke(this, new Vector2ValueChangedEventArgs(value));
             }
         }
 
@@ -73,7 +73,7 @@ namespace WindowsFormsTools.InputControls
                 extendNumericControl(xNumericUpDown, value);
                 xNumericUpDown.Value = (decimal)value;
                 this.value.X = value;
-                ValueChanged?.Invoke(this, new ValueChangedEventArgs<Vector2>(this.value));
+                ValueChanged?.Invoke(this, new Vector2ValueChangedEventArgs(this.value));
             }
         }
 
@@ -85,7 +85,7 @@ namespace WindowsFormsTools.InputControls
                 extendNumericControl(yNumericUpDown, value);
                 yNumericUpDown.Value = (decimal)value;
                 this.value.Y = value;
-                ValueChanged?.Invoke(this, new ValueChangedEventArgs<Vector2>(this.value));
+                ValueChanged?.Invoke(this, new Vector2ValueChangedEventArgs(this.value));
             }
         }
 
@@ -101,13 +101,13 @@ namespace WindowsFormsTools.InputControls
         private void xNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             value.X = (float)xNumericUpDown.Value;
-            ValueChanged?.Invoke(this, new ValueChangedEventArgs<Vector2>(value));
+            ValueChanged?.Invoke(this, new Vector2ValueChangedEventArgs(value));
         }
 
         private void yNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             value.Y = (float)yNumericUpDown.Value;
-            ValueChanged?.Invoke(this, new ValueChangedEventArgs<Vector2>(value));
+            ValueChanged?.Invoke(this, new Vector2ValueChangedEventArgs(value));
         }
     }
 }

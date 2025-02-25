@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
-using WindowsFormsTools.Miscellaneous;
+using WindowsFormsTools.Core;
 
 namespace WindowsFormsTools.InputControls
 {
     public partial class RangeControl : UserControl
     {
-        public event EventHandler<ValueChangedEventArgs<float>>? ValueChanged;
+        public event EventHandler<FloatValueChangedEventArgs>? ValueChanged;
 
         private float value;
         private readonly Size initialValueSize;
@@ -98,7 +98,7 @@ namespace WindowsFormsTools.InputControls
                         rangeTrackBar.Value = (int)(Precision * (decimalValue - A) / (B - A));
                     valueLabel.Text = Value.ToString(CultureInfo.InvariantCulture);
 
-                    ValueChanged?.Invoke(this, new ValueChangedEventArgs<float>(this.value));
+                    ValueChanged?.Invoke(this, new FloatValueChangedEventArgs(this.value));
                 }
             }
         }
