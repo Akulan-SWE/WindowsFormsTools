@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using WindowsFormsTools.Miscellaneous;
 
 namespace WindowsFormsTools.InputControls
 {

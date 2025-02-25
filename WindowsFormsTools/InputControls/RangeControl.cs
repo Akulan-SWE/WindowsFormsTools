@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using WindowsFormsTools.Miscellaneous;
 
 namespace WindowsFormsTools.InputControls
 {

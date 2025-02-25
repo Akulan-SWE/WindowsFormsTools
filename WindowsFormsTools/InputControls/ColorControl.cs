@@ -1,4 +1,6 @@
 ﻿
+using WindowsFormsTools.Miscellaneous;
+
 namespace WindowsFormsTools.InputControls
 {
     public partial class ColorControl : UserControl

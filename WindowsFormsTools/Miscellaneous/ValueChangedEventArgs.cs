@@ -1,5 +1,4 @@
-﻿
-namespace WindowsFormsTools.InputControls
+﻿namespace WindowsFormsTools.Miscellaneous
 {
     public class ValueChangedEventArgs<T> : EventArgs
     {
