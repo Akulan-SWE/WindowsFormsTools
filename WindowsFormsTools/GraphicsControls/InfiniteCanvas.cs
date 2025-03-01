@@ -17,14 +17,33 @@ namespace WindowsFormsTools.GraphicsControls
 
         public float ZoomBase { get; set; } = 2;
         public float ZoomPowStep { get; set; } = 0.1f;
-        
-        protected PointF ScreenMouseDownPosition;
 
-        protected Vector2 Offset;
+        public Vector2 Offset
+        {
+            get => offset;
+            set
+            {
+                prevOffset = offset = value;
+                Invalidate();
+            }
+        }
+
+        public float ZoomPow
+        {
+            get => zoomPow;
+            set
+            {
+                zoomPow = value;
+                float newZoom = (float)Math.Pow(ZoomBase, zoomPow);
+                setZoom(newZoom, false);
+            }
+        }
+
+        protected PointF ScreenMouseDownPosition;
 
         protected Vector2 CanvasHalfSize { get; private set; }
 
-        private Vector2 prevOffset;
+        private Vector2 offset, prevOffset;
         private bool isMousePressing;
         private float zoom = 1;
         private float zoomPow;
@@ -72,9 +91,8 @@ namespace WindowsFormsTools.GraphicsControls
         {
             if (isMousePressing && e.Button == MouseButtons.Right)
             {
-                Offset.X = (e.Location.X - ScreenMouseDownPosition.X) / Zoom + prevOffset.X;
-                Offset.Y = (e.Location.Y - ScreenMouseDownPosition.Y) / Zoom + prevOffset.Y;
-                
+                offset = new Vector2(e.Location.X - ScreenMouseDownPosition.X,
+                                     e.Location.Y - ScreenMouseDownPosition.Y) / Zoom + prevOffset;
                 Invalidate();
             }
         }
