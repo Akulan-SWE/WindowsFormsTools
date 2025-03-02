@@ -30,11 +30,12 @@
         {
             SuspendLayout();
             // 
-            // Canvas
+            // InfiniteCanvas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Name = "Canvas";
+            DoubleBuffered = true;
+            Name = "InfiniteCanvas";
             Size = new Size(200, 200);
             Load += InfiniteCanvas_Load;
             Paint += InfiniteCanvas_Paint;
