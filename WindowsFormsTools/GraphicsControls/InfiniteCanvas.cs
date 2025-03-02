@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using WindowsFormsTools.Core;
 
 namespace WindowsFormsTools.GraphicsControls
 {
@@ -8,7 +9,9 @@ namespace WindowsFormsTools.GraphicsControls
     public partial class InfiniteCanvas : UserControl
     {
         public event PaintEventHandler? WorldSpacePaint;
-        
+
+        public event EventHandler<FloatValueChangedEventArgs>? ZoomChanged;
+
         public float Zoom
         {
             get => zoom;
@@ -124,6 +127,8 @@ namespace WindowsFormsTools.GraphicsControls
 
             if(calcZoomPow)
                 zoomPow = (float)Math.Log(zoom, ZoomBase);
+
+            ZoomChanged?.Invoke(this, new FloatValueChangedEventArgs(zoom));
 
             Invalidate();
         }
