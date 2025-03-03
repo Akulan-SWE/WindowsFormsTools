@@ -144,7 +144,7 @@ namespace WindowsFormsTools.GraphicsControls
         {
             float worldX = (screenX - CanvasHalfSize.X) / Zoom - Offset.X + CanvasHalfSize.X;
             float worldY = (screenY - CanvasHalfSize.Y) / Zoom - Offset.Y + CanvasHalfSize.Y;
-            return (worldX, -worldY);
+            return (worldX, worldY);
         }
         
         /// <summary>
