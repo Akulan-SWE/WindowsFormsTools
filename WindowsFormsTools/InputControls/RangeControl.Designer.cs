@@ -83,7 +83,7 @@
             // bNumericUpDown
             // 
             bNumericUpDown.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            bNumericUpDown.Location = new Point(23, 1);
+            bNumericUpDown.Location = new Point(22, 0);
             bNumericUpDown.Margin = new Padding(4, 3, 4, 3);
             bNumericUpDown.Name = "bNumericUpDown";
             bNumericUpDown.Size = new Size(69, 23);
@@ -92,11 +92,10 @@
             // 
             // bLabel
             // 
-            bLabel.AutoSize = true;
             bLabel.Location = new Point(4, 3);
             bLabel.Margin = new Padding(4, 0, 4, 0);
             bLabel.Name = "bLabel";
-            bLabel.Size = new Size(14, 15);
+            bLabel.Size = new Size(15, 15);
             bLabel.TabIndex = 12;
             bLabel.Text = "B";
             // 
@@ -189,7 +188,6 @@
             ((System.ComponentModel.ISupportInitialize)rangeTrackBar).EndInit();
             inputTableLayoutPanel.ResumeLayout(false);
             bPanel.ResumeLayout(false);
-            bPanel.PerformLayout();
             aPanel.ResumeLayout(false);
             aPanel.PerformLayout();
             ResumeLayout(false);
@@ -210,6 +208,5 @@
         private System.Windows.Forms.TableLayoutPanel inputTableLayoutPanel;
         private System.Windows.Forms.Panel aPanel;
         private System.Windows.Forms.Panel bPanel;
-
     }
 }
